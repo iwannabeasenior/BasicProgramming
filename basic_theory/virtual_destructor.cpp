@@ -5,7 +5,7 @@ class base{
     base(){
         cout<<"1";
     }
-   virtual ~base(){
+    virtual ~base(){
         cout<<"1'";
     }
     void hello(){
@@ -25,15 +25,13 @@ class derived : public base{
     
 };
 int main(){
+    // bo nho dong, dynamic memory
     derived *d = new derived(); 
-    base *b = d;
+    base *b = d; // up casting
     //call hello() in base class not in derived class
     b->hello();
 
     //delete object->destructor called, first call derived destructor and second call base destructor
-
     delete b;
-    cout<<"thanhdepzai";
-    getchar();
-    return 0;
+    // delete b : use virtual , delete d : use or not use is okey
 }
