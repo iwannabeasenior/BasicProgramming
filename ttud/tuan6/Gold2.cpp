@@ -10,12 +10,13 @@ void input() {
         cin >> a[i];
     }
 }
+
 int main() {
     input();
     deque<int> d;
     ans = 0;
     for (int i = 1;i <= n; i++) {
-        while( !d.empty() && d.front() < i - L2) d.pop_front();
+        while(!d.empty() && d.front() < i - L2) d.pop_front();
         int j = i - L1;
         if (j >= 1) {
             while(!d.empty() && S[d.back()] < S[j]) d.pop_back();

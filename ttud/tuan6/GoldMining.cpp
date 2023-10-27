@@ -36,6 +36,5 @@ int main() {
         if (gold[i] == -1) gold[i] = goldMining(i);
         if (gold[i] > max) max = gold[i];
     } 
-    cout << max;
-    
+    cout << max;  
 }
