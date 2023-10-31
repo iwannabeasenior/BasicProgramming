@@ -34,8 +34,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/TaiLieu/code/LearnC++/TH_C++/bthso4",
-      "program": "c:/TaiLieu/code/LearnC++/TH_C++/bthso4/build/Debug/outDebug",
+      "cwd": "c:/TaiLieu/code/LearnC++/project1/tuan1",
+      "program": "c:/TaiLieu/code/LearnC++/project1/tuan1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
