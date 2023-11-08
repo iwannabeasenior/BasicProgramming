@@ -2,6 +2,8 @@
 using namespace std;
 #define N 1001
 int a, b,c ;
+bool visited[N][N];
+
 struct State {
     int x, y;
     int step;
@@ -10,10 +12,12 @@ struct State {
         y = _y;
         step = _step;
     }
+    State* state;
 };
+
 vector<State> getNeighborhood(State s) {
     vector<State> ns;
-    // build 7 state
+    // build 8 state
 
     State s1(a, s.y, s.step+1); ns.push_back(s1);
     State s2(s.x, b, s.step+1); ns.push_back(s2);
@@ -30,10 +34,8 @@ vector<State> getNeighborhood(State s) {
         State s8(s.x - (b - s.y), b, s.step+1); ns.push_back(s8);
     }
     
-    
     return ns;
 }
-bool visited[N][N];
 int calStep() {
     
     cin >> a >> b >> c;

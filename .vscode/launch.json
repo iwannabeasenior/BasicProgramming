@@ -34,8 +34,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/TaiLieu/code/LearnC++/project1/tuan6",
-      "program": "c:/TaiLieu/code/LearnC++/project1/tuan6/build/Debug/outDebug",
+      "cwd": "c:/TaiLieu/code/LearnC++/ttud/tuan8",
+      "program": "c:/TaiLieu/code/LearnC++/ttud/tuan8/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
