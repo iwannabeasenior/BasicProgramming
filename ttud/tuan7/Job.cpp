@@ -1,3 +1,4 @@
+// gready
 #include<bits/stdc++.h>
 using namespace std;
 vector<pair<int, int>> jobs;

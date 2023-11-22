@@ -1,9 +1,10 @@
+// Longest Common Subsequence
 #include<bits/stdc++.h>
 using namespace std;
 vector<long long> v;
-    long long Even[1000000];
-    long long Odd[1000000];
-    long long maxValue = -10000;
+long long Even[1000000];
+long long Odd[1000000];
+long long maxValue = -10000;
 int main() {
     int n; cin >> n;
     

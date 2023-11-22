@@ -1,62 +1,64 @@
-// ford - fulkerson
 #include<bits/stdc++.h>
+#define N 1001
 using namespace std;
-int n, m, s, t;
-vector<vector<int>> edges(1000);
-int f[1000][1000];
-int c[1000][1000];
-int trace[1000];
-bool visited[1000];
+int n, m, s, t, maxFlow;
+int graph[N][N];
+int trace[N] = {0};
+bool visited[N] = {false};
 
 void dfs(int u, int sink) {
     visited[u] = true;
-    for (auto v : edges[u]) {
-        if (!visited[v]) {
-            trace[v] = u;
-            dfs(v, sink);
+    for (int i = 1; i <= n; i++) {
+        if (!visited[i] && graph[u][i] > 0) {
+            trace[i] = u;
+            dfs(i, sink);
         }
     }
 }
 
-bool find_arg_from_to(int source, int sink) {
-    memset(trace, 0, sizeof(trace));
+bool findWay(int source, int sink) {
     memset(visited, false, sizeof(visited));
+    memset(trace, 0, sizeof(trace));
     dfs(source, sink);
     return visited[sink];
 }
 
-void increaseFlow(int minCapacity, int source, int sink) {
-    minCapacity = INFINITY;
-    int u = sink;
-    int preVertex;
-    while (u != source) {
-        preVertex = trace[u];
-        minCapacity = min(minCapacity, c[preVertex][u] - f[preVertex][u]);
-        u = preVertex;
-    }
+bool func() { 
+    if (findWay(s, t)) {
 
-    while(sink != source) {
-        preVertex =  trace[sink];
-        f[preVertex][sink] += minCapacity; // luong da di qua 
-        f[sink][preVertex] -= minCapacity; // luong con lai
-        sink = preVertex;
-    }
+        // process
+        int minCapacity = 10000000;
+        int u = t;
+        while (u != s) {
+            minCapacity = min(minCapacity, graph[trace[u]][u]);
+            u = trace[u];
+        }
+        maxFlow += minCapacity;
+        u = t;
+        while (u != s) {
+            graph[trace[u]][u] -= minCapacity;
+            graph[u][trace[u]] += minCapacity;
+            u = trace[u];
+        }
+        return true;
+    } 
+    return false;
 }
-
 int main() {
-    cin >> n >> m;
-    cin >> s >> t;
-    int u, v, w;
-    for (int i = 0; i < 1000; i++) {
-        for (int j = 0; j < 1000; j++) {
-            c[i][j] = 0;
-            f[i][j] = 0;
+    cin >> n >> m >> s >> t;
+    maxFlow = 0;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            graph[i][j] = 0;
         }
     }
+    int u, v, w;
     for (int i = 0; i < m; i++) {
         cin >> u >> v >> w;
-        c[u][v] = w;
-        edges[u].push_back(v);
+        graph[u][v] = w;
     }
-
+    while (func()) {
+        
+    }
+    cout << maxFlow;
 }
