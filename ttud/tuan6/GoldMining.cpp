@@ -12,10 +12,10 @@ int goldMining(int k) {
         int max = 0;
         int start;
         if (k-l2 >= 1) start = l2;
-        else  start = k-1;
+        else start = k-1;
         for (int i = start; i >= l1; i--) {
             if (gold[k-i] == -1) gold[k-i] = goldMining(k-i);
-            if (max < gold[k-i] + a[k] ) max = gold[k-i] + a[k];
+            if (max < gold[k-i] + a[k]) max = gold[k-i] + a[k];
         }
         return max;
     }

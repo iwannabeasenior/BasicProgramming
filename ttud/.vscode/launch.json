@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/TaiLieu/code/LearnC++/ttud",
-      "program": "c:/TaiLieu/code/LearnC++/ttud/build/Debug/outDebug",
+      "cwd": "c:/TaiLieu/Code/LearnC++/ttud/tuan16",
+      "program": "c:/TaiLieu/Code/LearnC++/ttud/tuan16/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
