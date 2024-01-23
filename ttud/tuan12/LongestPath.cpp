@@ -52,9 +52,10 @@ int BFS2(int s) {
 int main() {
     int n;
     cin >> n;
+    int k = n-1;
     int u, v, w;
     string str;
-    while (1) {
+    while (k--) {
         cin >> u >> v >> w;
         edges[u].push_back({v, w});
         edges[v].push_back({u, w});
