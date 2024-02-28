@@ -34,8 +34,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/TaiLieu/Code/C++/theory",
-      "program": "c:/TaiLieu/Code/C++/theory/build/Debug/outDebug",
+      "cwd": "c:/TaiLieu/Code/C++",
+      "program": "c:/TaiLieu/Code/C++/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

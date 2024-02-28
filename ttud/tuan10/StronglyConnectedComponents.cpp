@@ -33,7 +33,7 @@ bool isPath(int src, int des) {
     return false;
 }
 
-// find number of CSS in directed graph
+// find number of CSS in directed graph, a->i->b, b->i->a, => all vertices go to other vertices through i, each i coressponds to a CSS 
 int findCountCSS() {
     int count = 0;
     vector<int> is_scc(n+1, 0);
@@ -63,19 +63,23 @@ int n, m;
 vector<int> A[N];
 int low[N], num[N];
 stack<int> scc;
-bool inStack[N];
-int nbscc;
-int t;
+bool inStack[N] = {false};
+int nbscc = 0;
+int t = 0;
 void input() {
     cin >> n >> m;
     for (int k = 1; k <= m; k++) {
         int u, v;
         cin >> u >> v;
         A[u].push_back(v);
+        num[k] = -1;
+        inStack[k] = false;
     }
 }
 void dfs(int u, int pu) {
+
     t++; num[u] = t; scc.push(u); inStack[u] = true;
+
     for (int i = 0; i < A[u].size(); i++) {
         int v = A[u][i];
         if (num[v] > 0) {
@@ -96,6 +100,10 @@ void dfs(int u, int pu) {
 }
 int main() {
     input();
-    dfs();
+    for (int i = 1; i <= n; i++) {
+        if (num[i] == -1) {
+            dfs(i, -1);
+        }
+    }
     cout << nbscc;
 }

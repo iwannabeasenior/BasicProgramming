@@ -8,10 +8,10 @@ int t = 0;
 vector<vector<int>> edges(N);
 int low[N], num[N];
 bool visited[N] = {false};
-int bridges = 0; 
-int children = 0; // child of root
-int root = 0; // is root
-int totalRoot = 0; // total root is articulation point
+int bridges = 0;
+int adder = 0;
+int parent = 0;
+int totalParent = 0;
 set<int> articulationPoints;
 void input() {
     cin >> n >> m;
@@ -22,7 +22,7 @@ void input() {
     }
 }
 void dfs(int s, int ps) {
-    if (ps == root) children++;
+    if (ps == parent) adder++;
     t++;
     num[s] = t;
     low[s] = num[s];
@@ -41,7 +41,7 @@ void dfs(int s, int ps) {
             if (low[v] > num[s]) {
                 bridges++;
             }
-            if (low[v] >= num[s] && s != root) {
+            if (low[v] >= num[s] && s != parent) {
                 articulationPoints.insert(s);
             }
         }
@@ -51,11 +51,11 @@ int main() {
     input();    
     for (int i = 1; i <= n; i++) {
         if (!visited[i]) {
-            children = 0;
-            root = i;
+            adder = 0;
+            parent = i;
             dfs(i, -1);
-            if (children > 1) totalRoot++;
+            if (adder > 1) totalParent++;
         }
     }
-    cout << articulationPoints.size() + totalRoot << " " << bridges;
+    cout << articulationPoints.size() + totalParent << " " << bridges;
 }

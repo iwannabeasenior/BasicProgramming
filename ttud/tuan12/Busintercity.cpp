@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<queue>
-#define INF 100000000;
+#define INF 100000000
 using namespace std;
 
 int n, m;
@@ -12,8 +12,9 @@ vector<vector<pair<int, int>>> price(10000);
 vector<vector<int>> edges(10000);
 bool visited[5001] = {false};
 int disMin[5001];
+
 int dijkstra(int dinh, int nguon) {
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq; // a1 < a2 < a3
     for (auto i : price[dinh]) {
         disMin[i.first] = i.second;
         pq.push({i.second, i.first});
@@ -31,6 +32,7 @@ int dijkstra(int dinh, int nguon) {
         }
     }
 }
+
 void BFS(int s) {
     for (int i = 0; i < 5001; i++) {
         d[i] = -1;
