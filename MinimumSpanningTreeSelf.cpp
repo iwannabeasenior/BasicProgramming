@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+// giai bai 2
 using namespace std;
 int minDistance = 0;
 int n;
